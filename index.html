@@ -15,20 +15,68 @@
     </div>
 </header>
 <body>
-   <div class="d-flex flex-row">
-        <!--sidebar-->
-        <div class="d-flex flex-column container-sm border col-sm-4">
-            <div class="input-group m-1">
+   <div class="d-flex flex-row align-items-start">
+    <!--sidebar-->
+    <div class="d-flex w-25">
+        <div class="d-flex flex-column container-sm border">
+            <div class="input-group m-1 w-100">
                 <input type="text" class="form-control" placeholder="Search" id="search"/>
                 </div>
                 <button class="search-button m-1 rounded col-sm-12" id="search-button">Search</button>
             </div>
         </div>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
+        
+        <div class="jumbotron jumbotron-fluid w-75 m-1">
+            <div class="container border rounded">
                 <h2>Current City and Time</h2>
+                <h4>Temp:<span id="current-temp"></span></h4>
+                <h4>Wind:<span id="current-wind"></span></h4>
+                <h4>Humidity:<span id="current-humidity"></span></h4>
+                <h4>UV Index:<span id="current-uv"></span></h4>
+                </div> 
+                <!--card-holder-->
+                <div class="border-top border-bottom m-1">
+                    <h3>5 day forecast:</h3>
+                <div class="d-flex flex-row">
+                    <div class="card col-sm-2 m-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Day</h5>
+                            <h6 class="card-subtitle">weather icon</h6>
+
+                        </div>
+                    </div>
+                    <div class="card col-sm-2 m-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Day</h5>
+                            <h6 class="card-subtitle">weather icon</h6>
+
+                        </div>
+                    </div>
+                    <div class="card col-sm-2 m-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Day</h5>
+                            <h6 class="card-subtitle">weather icon</h6>
+
+                        </div>
+                    </div>
+                    <div class="card col-sm-2 m-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Day</h5>
+                            <h6 class="card-subtitle">weather icon</h6>
+
+                        </div>
+                    </div>
+                    <div class="card col-sm-2 m-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Day</h5>
+                            <h6 class="card-subtitle">weather icon</h6>
+
+                        </div>
+                    </div>
+                </div>               
             </div>
         </div>
+    </div>        
    </div>
 </body>
 <script src="./assets/script.js"></script>
