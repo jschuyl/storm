@@ -17,7 +17,7 @@
 <body>
    <div class="d-flex flex-row">
     <!--sidebar-->
-    <div class="d-flex w-25">
+    <div class="d-flex w-25" id="sidebar">
         <div class="d-flex flex-column">
             <div class="d-flex flex-column container-sm border">
                 <h2>City Search</h2>
@@ -27,11 +27,12 @@
                     <button class="search-button m-1 rounded col-sm-12" id="search-button">Search</button>
                 </div>
                 <div class="list-group w-100">
-                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">most recently searched city</button>
+                    <!--<button id="history-button" type="button" class="list-group-item list-group-item-action active" aria-current="true"></button>-->
                 </div>   
             </div>         
         </div>
-        
+        <!--
+        where today's weather is displayed
         <div class="jumbotron jumbotron-fluid w-75 m-1">
             <div class="container border rounded">
                 <h2>Current City and Time</h2>
@@ -40,7 +41,7 @@
                 <h4>Humidity:<span id="current-humidity"></span></h4>
                 <h4>UV Index:<span id="current-uv"></span></h4>
                 </div> 
-                <!--card-holder-->
+                card-holder
                 <div class="border-top border-bottom m-1">
                     <h3>5 day forecast:</h3>
                 <div class="d-flex flex-row">
@@ -93,7 +94,7 @@
             </div>
         </div>
     </div>        
-   </div>
+   </div>-->
 </body>
 <script src="./assets/script.js"></script>
 </html>
