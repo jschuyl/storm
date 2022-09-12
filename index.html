@@ -18,13 +18,18 @@
    <div class="d-flex flex-row">
     <!--sidebar-->
     <div class="d-flex w-25">
-        <div class="d-flex flex-column container-sm border">
-            <h2>City Search</h2>
-            <div class="input-group m-1 w-100">
-                <input type="text" class="form-control" placeholder="Search" id="search"/>
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-column container-sm border">
+                <h2>City Search</h2>
+                <div class="input-group m-1 w-100">
+                    <input type="text" class="form-control" placeholder="Search" id="search"/>
+                    </div>
+                    <button class="search-button m-1 rounded col-sm-12" id="search-button">Search</button>
                 </div>
-                <button class="search-button m-1 rounded col-sm-12" id="search-button">Search</button>
-            </div>
+                <div class="list-group w-100">
+                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">most recently searched city</button>
+                </div>   
+            </div>         
         </div>
         
         <div class="jumbotron jumbotron-fluid w-75 m-1">
