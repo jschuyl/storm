@@ -6,7 +6,7 @@ const baseURL = 'https://api.openweathermap.org/data/2.5/onecall';
 const testURL = 'https://api.openweathermap.org/data/2.5/weather?lat=' + testLat + '&lon=' + testLon + '&appid=' + APIkey;
 let testLocation = ''
 
-let searchArray = ['phoenix',  'Tucson', 'New York', 'London', 'Tokyo', 'Beijing'];
+let searchArray = ['Phoenix',  'Tucson', 'New York', 'London', 'Tokyo', 'Beijing'];
 
 /*console.log(testURL)
 
@@ -18,9 +18,9 @@ fetch(testURL)
     }
     console.log(response.status, response.statusText)
 })
-
+*/
 function findWeather() {
-    var buttonEl = document.getElementById('search-button');
+    var buttonEl = document.getElementById('search-button', 'history-holder');
     buttonEl.addEventListener('click', searchWeather);
 
     function searchWeather(event) {
@@ -44,39 +44,31 @@ function findWeather() {
     
 }
 findWeather();
-*/
-function searchHistoryButtonList() {
+
+function searchHistoryList() {
     if (searchArray.length > 5) {
         searchArray.pop()
     } for (i = 0; i < searchArray.length; i++) {
-        const addBtn = document.querySelector('#sidebar')
-        addBtn.addEventListener('click', addSearchHistoryButton)
-        addBtn.addEventListener('click', buttonLocalStorage) 
-    } 
-    function buttonLocalStorage(event) {
-        const clickedButton = event.target.id;
-        const targetInput = clickedButton.replace('search', 'history');
-        const input = document.getElementById(targetInput);
-        input.value;
-        localStorage.setItem(targetInput, input.value)
-    }
+        
+        const historyHolder = document.getElementById('history-holder');
 
-    function addSearchHistoryButton() {
-        const newBtn = document.createElement('button');
-        console.log('add')
-        newBtn.innerHTML = searchArray[i];
-        document.body.appendChild(newBtn);
-    }
-}
-searchHistoryButtonList();
-function loadLocalStorage() {
-    for (i = 0; i < timeArray.length; i++) {
-
-    }
+        function createHistoryButton() {
+            const newBtn = document.createElement('button');
+            console.log('add');
+            newBtn.classList.add('list-group-item', 'list-group-item-action', 'rounded');
+            newBtn.ariaCurrent = true;
+            newBtn.textContent = searchArray[i];
+            historyHolder.appendChild(newBtn)
+        }
+    createHistoryButton();
 }
 
+const btnAdd = document.querySelector('.search-button');
 
+btnAdd.addEventListener('click', createHistoryButton);
 
+}
+searchHistoryList();
 /*
 console.log(testGeoURL)
 fetch(testGeoURL)

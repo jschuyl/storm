@@ -2,3 +2,9 @@
     max-width: 1260px;
     margin: auto;
 }
+.history-button {
+    width: 20px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 5px;
+}
