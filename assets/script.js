@@ -1,49 +1,65 @@
-let APIkey = '528234272a9750cafc4559111822d230';
+let APIkey = '1eeaa1ce3b0dd35be268690b4652258a';
 const changeURL = '&exclude=';
 const testLat = '32.21';
 const testLon = '-110.94';
 const baseURL = 'https://api.openweathermap.org/data/2.5/onecall';
-const testURL = 'https://api.openweathermap.org/data/2.5/weather?lat=' + testLat + '&lon=' + testLon + '&appid=' + APIkey;
+
 let testLocation = ''
 
 let searchArray = ['Phoenix',  'Tucson', 'New York', 'London', 'Tokyo', 'Beijing'];
 
-/*console.log(testURL)
 
-fetch(testURL)
-.then(function (response) {
-    console.log(response.json())
-    if (!response.ok) {
-        alert('Not Working')
-    }
-    console.log(response.status, response.statusText)
-})
-*/
-function findWeather() {
-    var buttonEl = document.getElementById('search-button', 'history-holder');
-    buttonEl.addEventListener('click', searchWeather);
+function getWeather(data) {
+    const currentLat = data[0].lat;
+    const currentLon = data[0].lon;
+    const testURL = 'https://api.openweathermap.org/data/2.5/weather?lat=' + currentLat + '&lon=' + currentLon + '&units=imperial&appid=' + APIkey;
 
-    function searchWeather(event) {
+    fetch(testURL)
+    .then(function (response) {
+        return response.json() 
+    }) .then(function (data) {
+        disperseData(data)
+    })
+
+}
+function findLocation() {
+    var buttonEl = document.getElementById('search-button');
+    buttonEl.addEventListener('click', searchLocation);
+
+    function searchLocation(event) {
         const clickedButton = event.target.id;
         const targetInput = clickedButton.replace('-button', '');
         const locationInput = document.getElementById(targetInput);
         let testLocation = locationInput.value;
-        console.log(locationInput.value);
         
         const geoURL ='http://api.openweathermap.org/geo/1.0/direct?q=' + testLocation + '&appid=' + APIkey;
 
         fetch(geoURL)
         .then(function (response) {
-            console.log(response.json())
-            if (!response.ok) {
-                alert('Not Working')
-            }
-            console.log(response.status, response.statusText)
-    })
+            return response.json()
+        })
+        .then(function (data) {
+            getWeather(data) // calls getWeather
+        })
     }
     
 }
-findWeather();
+findLocation();
+
+function disperseData(data) {
+    currentTemp = data.main.temp;
+    windSpeed = data.wind.speed;
+    humidity = data.main.humidity;
+    howTheSkyLooks = data.weather.main;
+    tempShow = document.getElementById('current-temp');
+    tempShow.textContent = currentTemp;
+    windShow = document.getElementById('current-wind');
+    windShow.textContent = windSpeed;
+    humidityShow = document.getElementById('current-humidity');
+    humidityShow.textContent = humidity;
+    showHowTheSkyLooks = document.getElementById('current-uv');
+    showHowTheSkyLooks.textContent = howTheSkyLooks;
+}
 
 function searchHistoryList() {
     if (searchArray.length > 5) {
